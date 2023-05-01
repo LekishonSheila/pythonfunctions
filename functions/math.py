@@ -14,6 +14,6 @@ def multiply(a,b):
     answer=a*b
     return answer
 
-def remainder(a,b):
+def remainder(a,b): 
     answer=a%b
     return answer
