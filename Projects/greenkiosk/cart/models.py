@@ -7,5 +7,5 @@ class Cart(models.Model):
     price = models.DecimalField(max_digits=6,decimal_places=3)
     quantity = models.PositiveBigIntegerField()
     total_price = models.DecimalField(max_digits=7,decimal_places=2)
-    date_added = models.DateField()
+    date_added = models.IntegerField()
     product_image = models.ImageField()

@@ -43,6 +43,11 @@ INSTALLED_APPS = [
     'order',
     'payment',
     'stock',
+    'discount',
+    'Reviews',
+    'Shipping',
+    'Sales',
+    'Vendor',
 ]
 
 MIDDLEWARE = [
@@ -56,9 +61,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'greenkiosk.urls'
-
+import os
 TEMPLATES = [
+   
     {
+         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
         'APP_DIRS': True,
@@ -72,6 +79,8 @@ TEMPLATES = [
         },
     },
 ]
+# Import os
+# Dirs: [os.path.join(BASE_DIR, "templates")]
 
 WSGI_APPLICATION = 'greenkiosk.wsgi.application'
 
@@ -127,3 +136,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
