@@ -1,8 +1,9 @@
-# from django.shortcuts import render
-# from .forms import ProductUploadForm
+from django.shortcuts import render
+from .forms import ProductUploadForm
 
 # Create your views here.
  
-# def upload_product(request):
-#     form = ProductUploadForm()
-#     return render(request, 'inventory/product_upload.html', {'form': form})
+def product_upload_view(request):
+    form = ProductUploadForm()
+    return render(request, "inventory/product_upload.html",{"form":form})
+  
