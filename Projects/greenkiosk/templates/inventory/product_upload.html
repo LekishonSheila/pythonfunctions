@@ -4,12 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+    #btn{
+        border-radius: 10%;
+        background-color: aqua;
+    }
+
+    body > form{
+        margin-left: 38%;
+        border: 2px solid;
+        width: 450px;
+        text-align: center;
+        background-color:rgb(131, 131, 36);
+        border-radius: 10%;
+        padding: 20px 10px;
+
+    }
+    body >h1{
+        text-align: center;
+        color: rgb(131, 131, 36);
+       
+    }
+
+    </style>
 </head>
+
 <body>
+    <h1>Product Upload Form</h1> 
     <form method="POST" class="post_form">
         {%csrf_token%}
-        {{form.as_p}}    <button type="submit">Save</button>
-       </form>
+        {{form.as_p}}   
+         <button type="submit" id="btn">Save</button>
+    </form>
     
 </body>
 </html>
