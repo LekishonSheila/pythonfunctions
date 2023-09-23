@@ -17,8 +17,29 @@ def productdetailview(request):
     return render(request, "inventory/product_details.html", {"product": product})
 
 def add_to_cart(request):
-    cartitems=[]
-    return render(request, "inventory/add_to_cart.html", {"cartitems":cartitems})
+    if request.method == 'POST':
+        form = AddToCartForm(request.POST)
+        if form.is_valid():
+            product_id = form.cleaned_data['product_id']
+            quantity = form.cleaned_data['quantity']
+            product = Product.objects.get(pk=product_id)
+
+            cart_item = {
+                'product': product,
+                'quantity': quantity,
+            }
+
+            if 'cart' not in request.session:
+                request.session['cart'] = []
+
+            request.session['cart'].append(cart_item)
+
+            return redirect('cart')  
+
+    else:
+        form = add_to_cart()
+    return render(request, "inventory/add_to_cart.html", {"form": form})
+
 
 
 def edit_product_view(request,id):
@@ -34,7 +55,7 @@ def edit_product_view(request,id):
 
 
 def cart_list(request):
-    cart=Products.objects.all()
-    return render(request,"inventory/cartlist.html",{"cart":cartlists})
+    cart=Product.objects.all()
+    return render(request,"inventory/cartlist.html",{"cart":cart_list})
 
 
